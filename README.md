@@ -1,2 +1,2 @@
-# pt2-ss23
+# 👨‍🏫 Programmiertechnik II
 Exercises in the subject "Programmiertechnik II" at Hasso-Plattner-Institute.
