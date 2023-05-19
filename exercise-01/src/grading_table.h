@@ -30,7 +30,7 @@ class GradingTable {
             return *m_ptr;
         }
 
-        pointer operator->() {
+        pointer operator->() const {
             return m_ptr;
         }
 
@@ -59,11 +59,11 @@ class GradingTable {
         pointer m_ptr;
     };
 
-    Iterator begin() {
+    Iterator begin() const {
         return Iterator(g_head);
     }
 
-    Iterator end() {
+    Iterator end() const {
         return Iterator(nullptr);
     }
 
