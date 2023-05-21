@@ -38,7 +38,10 @@ class Stack {
     Stack() : head(nullptr) {}
 
     // copy constructor
-    Stack(const Stack &s) { head = deep_copy_list(s.head); }
+    Stack(const Stack &s) {
+        head = deep_copy_list(s.head);
+        capacity = s.capacity;
+    }
 
     // move constructor
     Stack(Stack &&s) : head(s.head) { s.head = nullptr; }
@@ -49,6 +52,7 @@ class Stack {
         free_list();
         // copy the stack passed in
         head = deep_copy_list(s.head);
+        capacity = s.capacity;
         return (*this);
     }
 
