@@ -13,9 +13,6 @@ typedef struct var {
     struct var *next;
 } Variable;
 
-bool var_exists = false;
-bool var_is_writeable = false;
-
 // returns true if the variable was added successfully, false otherwise
 bool add_new_variable(string new_var_name, float new_var_value, Variable *&head) {
     Variable *new_var = new Variable();
@@ -48,8 +45,10 @@ bool add_new_variable(string new_var_name, float new_var_value, Variable *&head)
 
 // repl loop for evaluating infix expressions
 int main() {
-    string new_var_name;
     Variable *head = nullptr;
+    string new_var_name;
+    bool var_exists = false;
+    bool var_is_writeable = false;
 
     while (true) {
         string inp;
@@ -58,10 +57,11 @@ int main() {
         getline(cin, inp);
 
         if (inp == "exit") {
-            for (Variable *tmp = head; tmp != nullptr; tmp = tmp->next) {
-                Variable *next = tmp->next;
-                delete tmp;
-                tmp = next;
+            Variable *current = head;
+            while (current != nullptr) {
+                Variable *next = current->next;
+                delete current;
+                current = next;
             }
             break;
 
@@ -122,7 +122,7 @@ int main() {
                 float result = evaluate_infix(inp);
                 cout << "Ergebnis: " << result << endl;
             }
-        } catch (const std::invalid_argument& e) {
+        } catch (const std::invalid_argument &e) {
             cout << e.what() << endl;
         }
     }
