@@ -112,11 +112,6 @@ class Trie {
     // put a key-value pair into the table
     template <std::size_t N>
     void add(const std::array<Key, N> &k, const Value a) {
-        // TODO do we need that?
-        // if (k.size() == 0) {
-        //     return;
-        // }
-
         Node *node = root;
         for (int i = 0; i < N; i++) {
             int idx = get_index(k[i]);
