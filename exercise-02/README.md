@@ -1,8 +1,6 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/fmtIoymo)
-[![Open in Codespaces](https://classroom.github.com/assets/launch-codespace-7f7980b617ed060a017424585567c406b6ee15c891e84e1186181d67ecf80aa0.svg)](https://classroom.github.com/open-in-codespaces?assignment_repo_id=11099172)
-# Übung 2: Abstrakte Datentypen in Konkret
+# Übung 2: Abstrakte Datentypen
 
-Diese Übung wird sich vor allem um die Implementierung und Anwendung der eingeführten Datentypen aus der VL drehen. 
+Diese Übung wird sich vor allem um die Implementierung und Anwendung der eingeführten Datentypen aus der VL drehen.
 Zusätzlich können Sie für einen nontrivialen Algorithmus den Korrektheitsbeweis führen.
 
 > Hinweis: Vergessen Sie bitte nicht die C/C++ Erweiterung in VSCode zu aktivieren falls Sie den integrierten Debugger nutzen wollen.
@@ -63,7 +61,7 @@ sowie das ein Stack dem ein Element angefügt wird um 1 größer wird.
 > - arithmetric.cpp
 > - repl.cpp
 
-In dieser Aufgabe sollen Sie den implementierten Stack zur Auswertung von Arithmetischen Ausdrücken verwenden. 
+In dieser Aufgabe sollen Sie den implementierten Stack zur Auswertung von Arithmetischen Ausdrücken verwenden.
 Ein Arithmetischer Ausdruck sei eine Zeichenfolge bestehend aus Gleitkommazahlen, Operatoren sowie runden Klammern.
 Beispiel für einen solchen Ausdruck wäre:
 
@@ -72,11 +70,11 @@ Beispiel für einen solchen Ausdruck wäre:
 (2.0 * 3.0 + (2.0 / 4.0)) * 7.0
 ```
 
-> ( ) + - * /
+> ( ) + - \* /
 > sowie Gleitkommazahlen mit Dezimalpunkt
 > als Trenzeichen zwischen "Tokens" kommen Leertasten zum Einatz
 
-Um die Auswertung zu vereinfachen sollen Sie zu aller erst den Arithmetischen Ausdruck von der gebräuchlichen *Infix-Notation* in die *Postfix-Notation* (auch umgekehrte polnische Notation genannt) überführen.
+Um die Auswertung zu vereinfachen sollen Sie zu aller erst den Arithmetischen Ausdruck von der gebräuchlichen _Infix-Notation_ in die _Postfix-Notation_ (auch umgekehrte polnische Notation genannt) überführen.
 In der Postfix-Notation sind die Operanden **nach** den Argumenten genannt, wodurch Klammersetzung überflüssig wird.
 Dabei würde das Beispiel von oben wie folgt abgebildet werden:
 
@@ -97,7 +95,7 @@ while tokens not empty:
 	if t ist Gleitkommazahl:
 		push(Q, t)
 	else if t ist Operator:
-		while not is_empty(S) and 
+		while not is_empty(S) and
 			top(S) ist Operator and
 			t hat Präzidenz kleiner gleich top(S):
 				push(Q, pop(S)) # stack top zu Ausgabe
@@ -115,6 +113,7 @@ return Q (als string)
 ```
 
 > Hinweis: werfen sie einen Fehler wenn der Algorithmus in einen Fall läuft der einem ungültigen Infix Ausdruck entspricht.
+>
 > - Z. 18: Der Stack könnte leer werden.
 > - Z. 21: Es gibt nicht genügend schließende Klammern
 
@@ -122,9 +121,9 @@ return Q (als string)
 
 > Hinweis: Ihr Algorithmus sollte nicht von der Korrektheit der Eingabe ausgehen, d.h. der Algorithmus sollte einen Fehler werfen wenn der Infix-Ausdruck in seiner Form oder Aussage ungültig ist.
 
->Hinweis: Nutzen Sie einen Stack für Zwischenergebnisse.
+> Hinweis: Nutzen Sie einen Stack für Zwischenergebnisse.
 
-**Aufgabe 2.3 (4p):** Implementieren sie einen [Read-Evaluate-Print-Loop (REPL)](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop) welcher Arithmetische Ausdrücke in **Infix-Notation** als Eingabe entgegen nimmt, und bei `Enter` Ausführt und das Ergebnis printed und danach auf eine erneute Eingabe wartet. 
+**Aufgabe 2.3 (4p):** Implementieren sie einen [Read-Evaluate-Print-Loop (REPL)](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop) welcher Arithmetische Ausdrücke in **Infix-Notation** als Eingabe entgegen nimmt, und bei `Enter` Ausführt und das Ergebnis printed und danach auf eine erneute Eingabe wartet.
 
 > Denken Sie daran etwaige fehlerhafte Eingaben abzufangen damit Ihr Programm nicht abstürzt.
 
@@ -175,7 +174,7 @@ type Set<T>:
 
 **Aufgabe 3.1 (4p):** Implementieren Sie in `Set.h` die `operatoren` sodass Sie die gegebenen `axiome` erfüllen. Nutzen Sie dazu erneut das Konzept einer Linked List als Speicherstruktur.
 
-> Hinweis: Denken Sie dabei an die [Rule of Three](https://en.wikipedia.org/wiki/Rule_of_three_(C%2B%2B_programming)#Rule_of_three).
+> Hinweis: Denken Sie dabei an die [Rule of Three](<https://en.wikipedia.org/wiki/Rule_of_three_(C%2B%2B_programming)#Rule_of_three>).
 
 Implementieren sie weiterhin die beiden cpp operatoren `operator[]` und `operator==` für die `Set` Klasse (diese werden für Tests benötigt)
 
@@ -184,12 +183,12 @@ Implementieren sie weiterhin die beiden cpp operatoren `operator[]` und `operato
 ## Aufgabe 4: Korrektheit und Terminierung
 
 > Dateien die in dieser Aufgabe editiert werden sollen:
+>
 > - README.md
 
 Der im Folgenden gegebene Algorithmus berechnet die minimale Anzahl an Münzen
-die benötigt werden um Rückgeld in Höhe von `amount` auszugeben, 
+die benötigt werden um Rückgeld in Höhe von `amount` auszugeben,
 wenn die Erlaubten denominationen {25,10,5,1} sind.
-
 
 ```cpp
 #include <iostream>
@@ -222,15 +221,16 @@ int main()
 }
 ```
 
-**Aufgabe 4.1 (3p, Zusatz):** 
+**Aufgabe 4.1 (3p, Zusatz):**
 Beweisen sie die **totale** Korrektheit des oben gegebenen Algorithmus.
 Beweisen sie hierzu die partielle Korrektheit und Terminierung des Algorithmus.
 
 Schreiben Sie Ihre Antwort in diese `README`.
+
 > Hinweis: Sie können Mathematische Formeln wie in Latex schreiben indem Sie die Formel mit Dollarzeichen umschließen. Mehr Infos hier: [Latex - Formeln](https://www.grund-wissen.de/informatik/latex/mathematischer-formelsatz.html)
 > Einfache Dollarzeichen erlauben Formeln im Text, doppelte Dollarzeichen als Block.
 > Bsp: $\alpha$
->
+
 $$
 \begin{align}
     F_n = F_{n-1}+F_{n-2}\\
